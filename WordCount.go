@@ -3,14 +3,20 @@ package main
 import (
 	"golang.org/x/tour/wc"
 	"strings"
+	"fmt"
 )
 
 func WordCount(s string) map[string]int {
-	if nil == s{
-		return nil
-	}
+
 	var stringArray []string = strings.Fields(s)
-	return map[string]int{"x": 1}
+	var returnMap map[string]int = make (map[string] int)
+	for i:=0; i<len(stringArray); i++{
+		word := stringArray[i];
+		var count int = len(word)
+		fmt.Printf("Count of word %s is %d\n", stringArray[i], count)
+		returnMap[word] = count
+	}
+	return returnMap
 }
 
 func main() {
